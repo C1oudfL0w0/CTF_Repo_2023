@@ -1,0 +1,11 @@
+<?php
+highlight_file(__FILE__);
+if(isset($_POST['password'])&&isset($_POST['e_v.a.l'])){
+    $password=md5($_POST['password']);
+    $code=$_POST['e_v.a.l'];
+    if(substr($password,0,6)==="c4d038"){
+        if(!preg_match("/flag|system|pass|cat|ls/i",$code)){
+            eval($code);
+        }
+    }
+} 

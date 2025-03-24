@@ -1,0 +1,22 @@
+<?php
+highlight_file(__FILE__);
+include("flag.php");
+if(isset($_POST['SHCTF'])){
+    extract(parse_url($_POST['SHCTF']));
+    if($$$scheme==='SHCTF'){
+        echo(md5($flag));
+        echo("</br>");
+    }
+    if(isset($_GET['length'])){
+        $num=$_GET['length'];
+        if($num*100!=intval($num*100)){
+            echo(strlen($flag));
+            echo("</br>");
+        }
+    }
+}
+if($_POST['SHCTF']!=md5($flag)){
+    if($_POST['SHCTF']===md5($flag.urldecode($num))){
+        echo("flag is".$flag);
+    }
+} 
